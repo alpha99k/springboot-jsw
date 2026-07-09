@@ -97,7 +97,7 @@ fabric.properties
 .idea/**/sonarIssues.xml
 
 # Markdown Navigator plugin
-# https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced
+# https://plugins.jetbrains.com/plugin/7896-markdow n-navigator-enhanced
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator-enh.xml
 .idea/**/markdown-navigator/
