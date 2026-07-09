@@ -1,9 +1,11 @@
-package net.likelion.bebc25.Spring;
+package net.likelion.bebc25.Spring.di.setter;
 
 public class Driver {
     private Car car;
 
-    public Driver(Car car) {
+
+    public void setCar(Car car) {
+        System.out.println("setter injection called");
         this.car = car;
     }
 

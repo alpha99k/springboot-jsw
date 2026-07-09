@@ -1,4 +1,4 @@
-package net.likelion.bebc25.Spring;
+package net.likelion.bebc25.Spring.aop.staticProxy;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

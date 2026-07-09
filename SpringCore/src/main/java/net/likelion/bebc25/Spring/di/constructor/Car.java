@@ -1,4 +1,4 @@
-package net.likelion.bebc25.Spring;
+package net.likelion.bebc25.Spring.di.constructor;
 
 public interface Car {
     void startEngine();

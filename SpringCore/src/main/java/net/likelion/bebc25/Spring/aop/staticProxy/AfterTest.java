@@ -1,4 +1,4 @@
-package net.likelion.bebc25.Spring;
+package net.likelion.bebc25.Spring.aop.staticProxy;
 
 public class AfterTest {
     static void main(String[] args) {
