@@ -1,9 +1,9 @@
-package net.likelion.bebc25.Spring.aop.staticProxy;
+package net.likelion.bebc25.Spring.aop.dynamicProxy;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class SpringCoreApplication {
+public class SpringDynamicProxy {
     void main(){
         //  1. 스프링 컨테이너 생성(bean정보 분석을 위한 Config 객체 지정)
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);

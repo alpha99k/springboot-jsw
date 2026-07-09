@@ -1,4 +1,4 @@
-package net.likelion.bebc25.Spring.aop.staticProxy;
+package net.likelion.bebc25.Spring.aop.dynamicProxy;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
