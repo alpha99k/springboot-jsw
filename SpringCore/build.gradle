@@ -10,12 +10,12 @@ repositories {
 }
 
 dependencies {
-    // Source: https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
-    implementation 'org.aspectj:aspectjweaver:1.9.25.1'
+    implementation 'org.springframework:spring-aspects:7.0.8'
     implementation 'org.springframework:spring-context:7.0.8'
     testImplementation platform('org.junit:junit-bom:6.0.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'jakarta.annotation:jakarta.annotation-api:3.0.0'
 }
 
 test {
