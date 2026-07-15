@@ -2,7 +2,7 @@ package net.likelion.bebc25.board01.post.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
-import net.likelion.bebc25.board01.post.PostDto;
+import net.likelion.bebc25.board01.post.dto.PostDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
