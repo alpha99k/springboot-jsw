@@ -44,6 +44,12 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public void save(MemberDto member) {
+    jdbcTemplate.update("INSERT INTO member (id, username, password, email, createAt) VALUES (?, ?, ?, ?, ?)"
+            , member.getId()
+            , member.getUsername()
+            , member.getPassword()
+            , member.getEmail()
+            , member.getCreatedAt());
     // 실습 영역
   }
 
@@ -52,7 +58,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public MemberDto findByUsername(String username) {
-    return null;
+    return jdbcTemplate.queryForObject("SELECT * FROM member WHERE username = ?", memberRowMapper, username);
   }
 
   /**
@@ -60,7 +66,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public MemberDto findById(int id) {
-    return null;
+    return jdbcTemplate.queryForObject("SELECT * FROM member WHERE id = ?", memberRowMapper, id);
   }
 
   /**
@@ -68,7 +74,11 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public void update(MemberDto member) {
-    // 실습 영역
+    jdbcTemplate.update("UPDATE member SET username = ?, password = ?, email = ?  WHERE id = ?"
+            , member.getUsername()
+            , member.getPassword()
+            , member.getEmail()
+            , member.getId());
   }
 
   /**
@@ -76,7 +86,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public void deleteById(int id) {
-    // 실습 영역
+    jdbcTemplate.update("DELETE FROM member WHERE id = ?", id);
   }
 
   /**
@@ -84,6 +94,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public List<MemberDto> findAll() {
-    return null;
+
+    return jdbcTemplate.query("SELECT * FROM member", memberRowMapper);
   }
 }
