@@ -37,6 +37,7 @@ public class MemberController {
    */
   @GetMapping("/list.html")
   public String getMemberList(Model model) {
+    // 멤버 목록 조회(데이터)
     List<MemberDto> member = memberService.getMembers();
     model.addAttribute("members",member);
     return "member/list";

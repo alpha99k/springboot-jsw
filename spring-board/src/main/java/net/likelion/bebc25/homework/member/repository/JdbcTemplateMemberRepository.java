@@ -44,7 +44,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public void save(MemberDto member) {
-    jdbcTemplate.update("INSERT INTO member (id, username, password, email, createAt) VALUES (?, ?, ?, ?, ?)"
+    jdbcTemplate.update("INSERT INTO member2 (id, username, password, email, createAt) VALUES (?, ?, ?, ?, ?)"
             , member.getId()
             , member.getUsername()
             , member.getPassword()
@@ -58,7 +58,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public MemberDto findByUsername(String username) {
-    return jdbcTemplate.queryForObject("SELECT * FROM member WHERE username = ?", memberRowMapper, username);
+    return jdbcTemplate.queryForObject("SELECT * FROM member2 WHERE username = ?", memberRowMapper, username);
   }
 
   /**
@@ -66,7 +66,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public MemberDto findById(int id) {
-    return jdbcTemplate.queryForObject("SELECT * FROM member WHERE id = ?", memberRowMapper, id);
+    return jdbcTemplate.queryForObject("SELECT * FROM member2 WHERE id = ?", memberRowMapper, id);
   }
 
   /**
@@ -74,7 +74,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public void update(MemberDto member) {
-    jdbcTemplate.update("UPDATE member SET username = ?, password = ?, email = ?  WHERE id = ?"
+    jdbcTemplate.update("UPDATE member2 SET username = ?, password = ?, email = ?  WHERE id = ?"
             , member.getUsername()
             , member.getPassword()
             , member.getEmail()
@@ -86,7 +86,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
    */
   @Override
   public void deleteById(int id) {
-    jdbcTemplate.update("DELETE FROM member WHERE id = ?", id);
+    jdbcTemplate.update("DELETE FROM member2 WHERE id = ?", id);
   }
 
   /**
@@ -95,6 +95,6 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
   @Override
   public List<MemberDto> findAll() {
 
-    return jdbcTemplate.query("SELECT * FROM member", memberRowMapper);
+    return jdbcTemplate.query("SELECT * FROM member2", memberRowMapper);
   }
 }
