@@ -29,7 +29,7 @@ public class MemberServiceImpl implements MemberService {
    */
   @Override
   public void register(MemberDto member) {
-    // 실습 영역
+    memberRepository.save(member);          //26.07.21 수정
   }
 
   /**
@@ -45,6 +45,7 @@ public class MemberServiceImpl implements MemberService {
    */
   @Override
   public void modifyInfo(MemberDto member) {
+    memberRepository.update(member);
     // 실습 영역
   }
 
@@ -53,6 +54,7 @@ public class MemberServiceImpl implements MemberService {
    */
   @Override
   public void withdraw(int id) {
+    memberRepository.deleteById(id);
     // 실습 영역
   }
 
