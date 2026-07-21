@@ -1,11 +1,14 @@
 package net.likelion.bebc25.homework.member.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import net.likelion.bebc25.homework.member.dto.MemberDto;
 import net.likelion.bebc25.homework.member.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 회원 관련 요청(회원 가입, 로그인, 정보 수정, 탈퇴 등)을 처리하여 해당 화면 또는 동작으로 분기하는 컨트롤러 클래스입니다.
@@ -34,7 +37,8 @@ public class MemberController {
    */
   @GetMapping("/list.html")
   public String getMemberList(Model model) {
-    // 실습 영역
+    List<MemberDto> member = memberService.getMembers();
+    model.addAttribute("members",member);
     return "member/list";
   }
 
@@ -44,8 +48,7 @@ public class MemberController {
    * @return 회원 가입 화면으로의 redirect 경로
    */
   @GetMapping("/register.html")
-  public String getRegisterForm() {
-    // 실습 영역
+  public String getRegisterForm(@ModelAttribute("memberForm") MemberDto member) {
     return "member/register";
   }
 
@@ -57,7 +60,7 @@ public class MemberController {
    */
   @PostMapping("/register")
   public String register(@ModelAttribute MemberDto memberDto) {
-    // 실습 영역
+    memberService.register(memberDto);
     return "redirect:/member/login.html";
   }
 
@@ -67,7 +70,7 @@ public class MemberController {
    * @return 로그인 화면으로의 redirect 경로
    */
   @GetMapping("/login.html")
-  public String getLoginForm() {
+  public String getLoginForm(@ModelAttribute("memberForm") MemberDto member) {
     // 실습 영역
     return "member/login";
   }
